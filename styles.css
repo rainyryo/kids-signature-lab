@@ -1,0 +1,122 @@
+:root {
+  --bg: #f8f7ff;
+  --card: #ffffff;
+  --ink: #1f2937;
+  --muted: #6b7280;
+  --accent: #8b5cf6;
+}
+
+* { box-sizing: border-box; }
+body {
+  margin: 0;
+  background: radial-gradient(circle at top right, #e9d5ff, #f8f7ff 40%);
+  color: var(--ink);
+  font-family: "Quicksand", system-ui, sans-serif;
+}
+
+.app-shell {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+header h1 { margin: 0; font-size: 2rem; }
+header p { margin: 6px 0 20px; color: var(--muted); }
+
+main {
+  display: grid;
+  gap: 16px;
+}
+
+.panel {
+  background: var(--card);
+  border-radius: 16px;
+  padding: 16px;
+  box-shadow: 0 6px 24px rgba(31, 41, 55, 0.08);
+}
+
+h2 { margin-top: 0; }
+label { display: grid; gap: 6px; margin-bottom: 10px; font-weight: 700; }
+input, select, button {
+  font: inherit;
+}
+
+input[type="text"], select {
+  border: 1px solid #d1d5db;
+  border-radius: 10px;
+  padding: 10px;
+}
+
+.button-row { display: flex; gap: 10px; flex-wrap: wrap; margin-top: 12px; }
+button {
+  border: none;
+  border-radius: 999px;
+  padding: 10px 16px;
+  background: #e5e7eb;
+  cursor: pointer;
+}
+button.primary {
+  background: var(--accent);
+  color: white;
+}
+
+.practice-area {
+  position: relative;
+  border: 2px dashed #d8b4fe;
+  border-radius: 14px;
+  min-height: 280px;
+  background: #fcfcff;
+  overflow: hidden;
+}
+
+.guide-text {
+  position: absolute;
+  inset: 0;
+  display: grid;
+  place-items: center;
+  color: rgba(139, 92, 246, 0.28);
+  user-select: none;
+  pointer-events: none;
+}
+
+#drawCanvas {
+  width: 100%;
+  height: 280px;
+  touch-action: none;
+  position: relative;
+  z-index: 2;
+}
+
+.hint { color: var(--muted); margin: 8px 0 0; }
+
+.worksheet-grid {
+  border: 1px solid #e5e7eb;
+  border-radius: 12px;
+  padding: 14px;
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 6px;
+  background: #fff;
+}
+
+.ws-line {
+  border-bottom: 1px dashed #cbd5e1;
+  min-height: 48px;
+  display: flex;
+  align-items: center;
+  color: rgba(17, 24, 39, 0.2);
+}
+
+@media (min-width: 900px) {
+  main {
+    grid-template-columns: 320px 1fr;
+  }
+  .worksheet { grid-column: span 2; }
+}
+
+@media print {
+  body { background: white; }
+  .controls, .hint, .button-row, header p { display: none !important; }
+  .panel { box-shadow: none; border: 1px solid #ddd; }
+  .preview { display: none; }
+}
