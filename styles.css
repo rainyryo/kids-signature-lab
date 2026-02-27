@@ -23,6 +23,22 @@ body {
 header h1 { margin: 0; font-size: 2rem; }
 header p { margin: 6px 0 20px; color: var(--muted); }
 
+.tiny-support {
+  margin-top: 14px;
+  text-align: right;
+}
+
+.tiny-support a {
+  color: #9ca3af;
+  font-size: 0.78rem;
+  text-decoration: none;
+}
+
+.tiny-support a:hover {
+  color: #6b7280;
+  text-decoration: underline;
+}
+
 main {
   display: grid;
   gap: 16px;
@@ -116,7 +132,7 @@ button.primary {
 
 @media print {
   body { background: white; }
-  .controls, .hint, .button-row, header p { display: none !important; }
+  .controls, .hint, .button-row, header p, .tiny-support { display: none !important; }
   .panel { box-shadow: none; border: 1px solid #ddd; }
   .preview { display: none; }
 }
